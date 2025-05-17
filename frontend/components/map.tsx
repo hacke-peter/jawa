@@ -25,16 +25,6 @@ interface City {
   currentFactors: { [key: string]: number };
 }
 
-// function getBarWidth(value: number) {
-//   if (value < 10) return '0';
-//   if (value >= 10 && value <= 30) return '1/6';
-//   if (value > 40 && value <= 55) return '1/2';
-//   if (value > 40 && value <= 55) return '1/4';
-//   if (value > 55 && value <= 65) return '1/4';
-//   if (value > 65 && value <= 86) return '1/6';
-//   return '100';
-// }
-
 function onGetPersonalized() {}
 
 const Modal: FC<
@@ -104,9 +94,10 @@ const Modal: FC<
 
           {!!currentFactors &&
             Object.entries(currentFactors).map(([factor, value]) => {
-              // const width =
-              //   factor === 'temperature' ? 'w-full' : `w-${getBarWidth(value)}`;
-              // console.log('width', width);
+              const styles = {
+                width: factor === 'temperature' ? '100%' : `${value}%`,
+              };
+
               return (
                 <div key={factor} className="mb-2">
                   <div className="flex items-center justify-between text-sm">
@@ -132,6 +123,7 @@ const Modal: FC<
                         ? 'bg-amber-400'
                         : 'bg-red-400'
                     }`}
+                    style={styles}
                   />
                 </div>
               );

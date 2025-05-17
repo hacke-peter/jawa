@@ -1,5 +1,4 @@
 '''s'''
-import os
 
 from typing                 import Union
 from fastapi                import FastAPI
@@ -15,22 +14,278 @@ class Item(BaseModel):
     price: float
     is_offer: Union[bool, None] = None
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+# @app.get("/")
+# def read_root():
+#     return {"Hello": "World"}
 
-@app.get("/test")
-async def test():
-    api_client.era5_api()
-    return {"message": "ok"}
+# @app.get("/test")
+# async def test():
+#     api_client.era5_api()
+#     return {"message": "ok"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+# @app.get("/items/{item_id}")
+# def read_item(item_id: int, q: Union[str, None] = None):
+#     return {"item_id": item_id, "q": q}
 
-@app.put("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
+# @app.put("/items/{item_id}")
+# def update_item(item_id: int, item: Item):
+#     return {"item_name": item.name, "item_id": item_id}
+
+@app.get("/map-data/{country}")
+def get_map_data_per_country(country: str):
+    cities = [
+        {
+            "name": "Barcelona",
+            "coords": [2.1734, 41.3851],
+            "description": "Vibrant Catalan capital famed for Gaudí’s Sagrada Familia and Park Güell, its bustling La Rambla boulevard, and sunny city beaches.",
+            "images": [
+                "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcR3IHXcZZujouhu8dXgw16p3JAgh6XnkleW_o_AXcu4CdDWP9isW50CsRCHL8IRSlmyV6tAPeBtF_buoAAmukdH6U4FaZQC-hzEbgAIFA",
+                "https://lh3.googleusercontent.com/gps-cs-s/AC9h4np8lJSMGsdgpRNbDG5JgePhhIjvErt4lYTQ2iB4AiUWtxFvNsMryK-IxeYt-JZ99rJEG9rvp58lFDX0cTtU6tUNUSJjXijDCCSiqJ6mYOOkIdQK7VPwtTLa729ROIScZ1yPnAXPbg=w1080-h624-n-k-no",
+                "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS2Khyxi-OLgopapzpevDYE7s89JPwjL7lX7yRjy8eVhHTyCu8hVPgxdcwv2mbdCaOwdP7gFwKrYAkHixu2QCWv8HXmMpqgn8vv2Hkb0Q"
+            ],
+        },
+        {
+            "name": "Madrid",
+            "coords": [-3.7038, 40.4168],
+            "description": "Spain’s lively capital, home to world-class art museums (Prado, Reina Sofía), the grand Royal Palace, and expansive Retiro Park.",
+            "images": [
+                "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRj4tANRJ5wpNkaVnA6PVIbzDPTJIaWXZVRE-6GTMTW_nSIo_qbWJfIEczZ6aiVzFXBU__Uz1cDv3qLTUCT1SkR-4l28y83GMGXUhTBJA",
+                "/https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSmHvZhDsjfwKQuqlrN6ZRaUX36t084GdQx5SB_PKFWGSPK1WJGBkWzANGTkmcOBF7qAAJbsAszOyyogkPMgcAF9xERa11Yn801TdNJ0A",
+                "https://lh3.googleusercontent.com/gps-cs-s/AC9h4norITrkEP3dCo8HDZhEg3_ryF6dXdAdojf0Z_tprEC28bzFZW_r90yzD5GXn1MY_Jo9JK3W_atgv7OCLw0MuKEYxaYk1IwYj-jRQVmw-StQsf66ixS-gA4_vTA1ug9jy0U7NSCm=w1080-h624-n-k-no"
+            ],
+        },
+        {
+            "name": "Valencia",
+            "coords": [-0.3763, 39.4699],
+            "description": "Coastal city mixing futuristic architecture (City of Arts and Sciences) with a charming old town and world-famous paella.",
+            "images": [
+                "/images/valencia-1.jpg",
+                "/images/valencia-2.jpg",
+                "/images/valencia-3.jpg"
+            ],
+        },
+        {
+            "name": "Seville",
+            "coords": [-5.9845, 37.3891],
+            "description": "Andalusian gem known for the Alcázar palace, Gothic cathedral (housing Columbus’s tomb), flamenco performances, and orange-blossom streets.",
+            "images": [
+                "/images/seville-1.jpg",
+                "/images/seville-2.jpg",
+                "/images/seville-3.jpg"
+            ],
+        },
+        {
+            "name": "Granada",
+            "coords": [-3.5986, 37.1773],
+            "description": "Historic city at the foot of the Sierra Nevada, anchored by the Moorish Alhambra palace-fortress and atmospheric Albaicín quarter.",
+            "images": [
+                "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQk8KeK_H48mFtgLF1_w3RimA6hmg8UIf7sE0iq9Wp5eEQs7sFVyN08bCZuysl2sw7hY9D3sIxh47A5CTGAG6UDj4IVeu7V9GOtC4P5HA",
+                "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRxOTQBjLt3480QFzkSlhnnZ0mQVZh4VVnDbBXXlvwv-ya_zuxGyBaKYYBzqp8r2MwBsVRnZl9a3ZJE9GST0V-vExD6FEYqBfT_7LLzBg",
+                "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcS2ngel-TO7iFgmWm09Qjdgc_mMt3m0XBfnbh9nzW25M4utbZH0wpgJqQPFRhPLwKCzwN9yueU2uwAgWW5qPkI5oFAk3yDIfw5pAa5KuA"
+            ],
+        },
+        {
+            "name": "Malaga",
+            "coords": [-4.4214, 36.7213],
+            "description": "Sun-soaked Costa del Sol hub, Picasso’s birthplace, with a revitalized port, hilltop Alcazaba, and year-round beach life.",
+            "images": [
+                "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQonNd-Ilx9dJGvdWVXO8WwGASontq4uLBPJM8gc9wwoOGdJ99Ml6-THKMtD4ddLyr79FtHdhZ2ONd4plDYXW9UIv8pZq5LBrTeSzigwQ",
+                "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Dgmi7w9NvfwoA8986PRdzHc9rpOJIXWxy-bmA7d1_nSUYVu0pcDWi0Jm6X8zjYylpsjwhtEjaO8uHzM91iA-abcspdBA9ZU1_jm3TTjjjxKExsMz8ynJNWwJfOz5KJaZWuh6Lg=w1080-h624-n-k-no",
+                "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRmMq91xq9E8f0tFx-4I1ZiL33p3h3GVxLt5eo9CwJAUrjsWdfm4IIMfqfYEDmVGLc75BpmoTR-LZqWFMTcHZkc39goX3zH3mEqo3UolQ"
+            ],
+        },
+        {
+            "name": "Bilbao",
+            "coords": [-2.9349, 43.263],
+            "description": "Basque powerhouse defined by the Frank Gehry–designed Guggenheim Museum, a rich pintxo scene, and a riverside old town.",
+            "images": [
+                "/images/bilbao-1.jpg",
+                "/images/bilbao-2.jpg",
+                "/images/bilbao-3.jpg"
+            ],
+        },
+        {
+            "name": "Cordoba",
+            "coords": [-4.7794, 37.8882],
+            "description": "Once capital of Islamic Spain, famed for the Mezquita–Cathedral’s stunning arches, winding medieval lanes, and Roman bridge.",
+            "images": [
+                "/images/cordoba-1.jpg",
+                "/images/cordoba-2.jpg",
+                "/images/cordoba-3.jpg"
+            ],
+        },
+        {
+            "name": "Zaragoza",
+            "coords": [-0.8787, 41.6488],
+            "description": "Historic Ebro-river city with the baroque Basilica del Pilar, Aljafería Palace, and a vibrant tapas culture.",
+            "images": [
+                "/images/zaragoza-1.jpg",
+                "/images/zaragoza-2.jpg",
+                "/images/zaragoza-3.jpg"
+            ],
+        },
+        {
+            "name": "Alicante",
+            "coords": [-0.481, 38.3452],
+            "description": "Sunny Mediterranean port with a hilltop Castillo de Santa Bárbara, palm-lined Explanada promenade, and blue-flag beaches.",
+            "images": [
+                "/images/alicante-1.jpg",
+                "/images/alicante-2.jpg",
+                "/images/alicante-3.jpg"
+            ],
+        },
+        {
+            "name": "Palma de Mallorca",
+            "coords": [2.6502, 39.5696],
+            "description": "Majorca’s elegant capital, boasting a soaring Gothic cathedral, narrow old-town streets, and a scenic seaside boulevard.",
+            "images": [
+                "/images/palma-de-mallorca-1.jpg",
+                "/images/palma-de-mallorca-2.jpg",
+                "/images/palma-de-mallorca-3.jpg"
+            ],
+        },
+        {
+            "name": "Murcia",
+            "coords": [-1.1307, 37.9922],
+            "description": "Baroque-rich city on the Segura River, known for its cathedral’s ornate façade, lively plazas, and verdant orchards nearby.",
+            "images": [
+                "/images/murcia-1.jpg",
+                "/images/murcia-2.jpg",
+                "/images/murcia-3.jpg"
+            ],
+        },
+        {
+            "name": "San Sebastian",
+            "coords": [-1.9812, 43.3183],
+            "description": "Gourmet paradise on the Bay of Biscay, famous for its La Concha beach, Monte Urgull views, and world-class pintxo bars.",
+            "images": [
+                "/images/san-sebastian-1.jpg",
+                "/images/san-sebastian-2.jpg",
+                "/images/san-sebastian-3.jpg"
+            ],
+        },
+        {
+            "name": "Salamanca",
+            "coords": [-5.6753, 40.9701],
+            "description": "University city with a UNESCO-listed Plaza Mayor, sandstone “Golden University” buildings, and a youthful, scholarly vibe.",
+            "images": [
+                "/images/salamanca-1.jpg",
+                "/images/salamanca-2.jpg",
+                "/images/salamanca-3.jpg"
+            ],
+        },
+        {
+            "name": "Toledo",
+            "coords": [-4.0244, 39.8628],
+            "description": "“City of Three Cultures” perched above the Tagus, with its Alcázar fortress, El Greco heritage, and labyrinthine medieval core.",
+            "images": [
+                "/images/toledo-1.jpg",
+                "/images/toledo-2.jpg",
+                "/images/toledo-3.jpg"
+            ],
+        },
+        {
+            "name": "Segovia",
+            "coords": [-4.1183, 40.947],
+            "description": "Characterful Castilian town crowned by a Roman aqueduct, fairy-tale Alcázar castle, and a Gothic cathedral set on a hilltop.",
+            "images": [
+                "/images/segovia-1.jpg",
+                "/images/segovia-2.jpg",
+                "/images/segovia-3.jpg"
+            ],
+        },
+        {
+            "name": "Cuenca",
+            "coords": [-2.1331, 40.0704],
+            "description": "Clifftop city famed for its UNESCO-listed hanging houses, dramatic gorge views, and a perfectly preserved medieval old town.",
+            "images": [
+                "/images/cuenca-1.jpg",
+                "/images/cuenca-2.jpg",
+                "/images/cuenca-3.jpg"
+            ],
+        },
+        {
+            "name": "Avila",
+            "coords": [-4.7069, 40.6565],
+            "description": "Walled Castilian city with complete 11th-century ramparts, Romanesque churches, and a famously austere, devotional atmosphere.",
+            "images": [
+                "/images/avila-1.jpg",
+                "/images/avila-2.jpg",
+                "/images/avila-3.jpg"
+            ],
+        },
+        {
+            "name": "Burgos",
+            "coords": [-3.6969, 42.3439],
+            "description": "Historic gateway to the Camino de Santiago, anchored by an impressive Gothic cathedral and a riverside medieval old quarter.",
+            "images": [
+                "/images/burgos-1.jpg",
+                "/images/burgos-2.jpg",
+                "/images/burgos-3.jpg"
+            ],
+        },
+        {
+            "name": "Oviedo",
+            "coords": [-5.8518, 43.3619],
+            "description": "Asturian capital known for its pre-Romanesque churches, elegant boulevard (La Calle Uría), and hearty cider-house culture.",
+            "images": [
+                "/images/oviedo-1.jpg",
+                "/images/oviedo-2.jpg",
+                "/images/oviedo-3.jpg"
+            ],
+        },
+        {
+            "name": "Santander",
+            "coords": [-3.8078, 43.4623],
+            "description": "Elegant Cantabrian port with the Palacio de la Magdalena on its bay, sandy beaches, and a refined seaside promenade.",
+            "images": [
+                "/images/santander-1.jpg",
+                "/images/santander-2.jpg",
+                "/images/santander-3.jpg"
+            ],
+        },
+        {
+            "name": "Tarragona",
+            "coords": [1.2546, 41.1189],
+            "description": "Roman-era seaside city boasting an amphitheatre by the sea, walled old town, and fresh seafood along the Mediterranean.",
+            "images": [
+                "/images/tarragona-1.jpg",
+                "/images/tarragona-2.jpg",
+                "/images/tarragona-3.jpg"
+            ],
+        },
+        {
+            "name": "Ronda",
+            "coords": [-5.1638, 36.7423],
+            "description": "Dramatic hilltop town split by El Tajo gorge, linked by its iconic Puente Nuevo bridge and surrounded by whitewashed villages.",
+            "images": [
+                "/images/ronda-1.jpg",
+                "/images/ronda-2.jpg",
+                "/images/ronda-3.jpg"
+            ],
+        },
+        {
+            "name": "Marbella",
+            "coords": [-4.8825, 36.5101],
+            "description": "Luxurious Costa del Sol resort town with upscale marinas (Puerto Banús), golden beaches, and a charming old quarter.",
+            "images": [
+                "/images/marbella-1.jpg",
+                "/images/marbella-2.jpg",
+                "/images/marbella-3.jpg"
+            ],
+        },
+        {
+            "name": "Girona",
+            "coords": [2.8214, 41.9794],
+            "description": "Medieval Catalan city with intact city walls, a labyrinthine Jewish quarter, and the colorful Onyar River façades.",
+            "images": [
+                "/images/girona-1.jpg",
+                "/images/girona-2.jpg",
+                "/images/girona-3.jpg"
+            ],
+        }
+    ]
+    return cities
 
 @app.get("/healthdata/{country}")
 def get_health_data_per_country(country: str):

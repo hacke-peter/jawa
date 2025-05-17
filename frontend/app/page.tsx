@@ -18,6 +18,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { SimpleSpainMap } from '@/components/simple-spain-map';
+import MapChart from '@/components/map';
 
 export default function Home() {
   return (
@@ -52,7 +53,7 @@ export default function Home() {
             destination for your needs
           </p>
         </div>
-
+        <MapChart />
         <SimpleSpainMap />
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

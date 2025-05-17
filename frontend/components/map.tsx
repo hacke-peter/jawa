@@ -15,16 +15,35 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { Heart, User } from 'lucide-react';
 
 interface City {
   name: string;
   description: string;
   images: string[];
   coords: [number];
+  currentFactors: { [key: string]: number };
 }
 
-const Modal: FC<City> = (city) => {
-  const id = `marker-${city.name.replace(/\s+/g, '-')}`;
+function onAddDestination(city: City) {}
+function onGetPersonalized() {}
+
+const Modal: FC<
+  City & {
+    onAddDestination: () => void;
+    onGetPersonalized: () => void;
+  }
+> = ({
+  name,
+  description,
+  images,
+  currentFactors,
+  onAddDestination,
+  onGetPersonalized,
+}) => {
+  const id = `marker-${name.replace(/\s+/g, '-')}`;
+  const [added, setAdded] = useState(false);
+
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
@@ -45,8 +64,62 @@ const Modal: FC<City> = (city) => {
           sideOffset={8}
           className="bg-white p-4 rounded-lg shadow-lg w-64 z-50"
         >
-          <h3 className="text-lg font-semibold mb-2">{city.name}</h3>
-          <p className="text-sm mb-4">{city.description}</p>
+          {/* Header with title and icon buttons */}
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-lg font-semibold">{name}</h3>
+            <div className="flex space-x-2">
+              <button
+                onClick={() => onAddDestination()}
+                aria-label="onAddDestination to next destinations"
+                className="p-1 rounded hover:bg-gray-100"
+              >
+                <Heart
+                  size={20}
+                  className={
+                    added ? 'text-red-500 fill-current' : 'text-gray-600'
+                  }
+                />
+              </button>
+              <button
+                onClick={() => onGetPersonalized()}
+                aria-label="Get personalized info"
+                className="p-1 rounded hover:bg-gray-100"
+              >
+                <User size={20} className="text-gray-600" />
+              </button>
+            </div>
+          </div>
+
+          <p className="text-sm mb-4">{description}</p>
+
+          {!!currentFactors &&
+            Object.entries(currentFactors).map(([factor, value]) => (
+              <div key={factor} className="mb-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span>{factor[0].toUpperCase() + factor.slice(1)}</span>
+                  <span
+                    className={`font-medium ${
+                      value <= 40
+                        ? 'text-green-600'
+                        : value <= 60
+                        ? 'text-amber-600'
+                        : 'text-red-600'
+                    }`}
+                  >
+                    {value}%
+                  </span>
+                </div>
+                <div
+                  className={`h-3 w-full rounded-full ${
+                    value <= 40
+                      ? 'bg-green-400'
+                      : value <= 60
+                      ? 'bg-amber-400'
+                      : 'bg-red-400'
+                  }`}
+                />
+              </div>
+            ))}
 
           <Swiper
             modules={[Navigation, Pagination]}
@@ -55,11 +128,11 @@ const Modal: FC<City> = (city) => {
             spaceBetween={10}
             slidesPerView={1}
           >
-            {city.images.map((src, i) => (
+            {images.map((src, i) => (
               <SwiperSlide key={i}>
                 <img
                   src={src}
-                  alt={`${city.name} ${i + 1}`}
+                  alt={`${name} ${i + 1}`}
                   className="w-full h-32 object-cover rounded"
                 />
               </SwiperSlide>
@@ -80,7 +153,6 @@ export default function MapChart() {
     fetch('/api/map-data/spain')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMapData(data);
       });
   }, []);
@@ -127,6 +199,9 @@ export default function MapChart() {
                   description={city.description}
                   images={city.images}
                   coords={city.coords}
+                  currentFactors={city.currentFactors}
+                  onGetPersonalized={onGetPersonalized}
+                  onAddDestination={() => onAddDestination(city)}
                 />
               </a>
             </Marker>

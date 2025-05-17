@@ -43,7 +43,7 @@ def get_map_data_per_country(country: str):
                 "https://lh3.googleusercontent.com/gps-cs-s/AC9h4np8lJSMGsdgpRNbDG5JgePhhIjvErt4lYTQ2iB4AiUWtxFvNsMryK-IxeYt-JZ99rJEG9rvp58lFDX0cTtU6tUNUSJjXijDCCSiqJ6mYOOkIdQK7VPwtTLa729ROIScZ1yPnAXPbg=w1080-h624-n-k-no",
                 "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS2Khyxi-OLgopapzpevDYE7s89JPwjL7lX7yRjy8eVhHTyCu8hVPgxdcwv2mbdCaOwdP7gFwKrYAkHixu2QCWv8HXmMpqgn8vv2Hkb0Q"
             ],
-            "currentFactors":{ "humidity": 65, "airQuality": 75, "allergens": 50, "temperature": 23 }
+            "currentFactors":{ "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 }
         },
         {
             "name": "Madrid",
@@ -51,10 +51,11 @@ def get_map_data_per_country(country: str):
             "description": "Spain’s lively capital, home to world-class art museums (Prado, Reina Sofía), the grand Royal Palace, and expansive Retiro Park.",
             "images": [
                 "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRj4tANRJ5wpNkaVnA6PVIbzDPTJIaWXZVRE-6GTMTW_nSIo_qbWJfIEczZ6aiVzFXBU__Uz1cDv3qLTUCT1SkR-4l28y83GMGXUhTBJA",
-                "/https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSmHvZhDsjfwKQuqlrN6ZRaUX36t084GdQx5SB_PKFWGSPK1WJGBkWzANGTkmcOBF7qAAJbsAszOyyogkPMgcAF9xERa11Yn801TdNJ0A",
+                "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSmHvZhDsjfwKQuqlrN6ZRaUX36t084GdQx5SB_PKFWGSPK1WJGBkWzANGTkmcOBF7qAAJbsAszOyyogkPMgcAF9xERa11Yn801TdNJ0A",
                 "https://lh3.googleusercontent.com/gps-cs-s/AC9h4norITrkEP3dCo8HDZhEg3_ryF6dXdAdojf0Z_tprEC28bzFZW_r90yzD5GXn1MY_Jo9JK3W_atgv7OCLw0MuKEYxaYk1IwYj-jRQVmw-StQsf66ixS-gA4_vTA1ug9jy0U7NSCm=w1080-h624-n-k-no"
             ],
-            "currenFactors":{ "humidity": 40, "airQuality": 65, "allergens": 45, "temperature": 24 }
+            "currentFactors":{"humidity": 45, "air-quality": 75, "allergens": 65, "temperature": 18},
+
         },
         {
             "name": "Valencia",
@@ -65,7 +66,7 @@ def get_map_data_per_country(country: str):
                 "/images/valencia-2.jpg",
                 "/images/valencia-3.jpg"
             ],
-            "currenFactors":{"humidity": 60, "airQuality": 80, "allergens": 45, "temperature": 24}
+            "currenFactors":{"humidity": 60, "air-quality": 80, "allergens": 45, "temperature": 24}
         },
         {
             "name": "Seville",
@@ -76,7 +77,7 @@ def get_map_data_per_country(country: str):
                 "/images/seville-2.jpg",
                 "/images/seville-3.jpg"
             ],
-            "currenFactors":{"humidity": 60, "airQuality": 80, "allergens": 45, "temperature": 24}
+            "currenFactors":{"humidity": 60, "air-quality": 80, "allergens": 45, "temperature": 24}
         },
         {
             "name": "Granada",
@@ -87,7 +88,7 @@ def get_map_data_per_country(country: str):
                 "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRxOTQBjLt3480QFzkSlhnnZ0mQVZh4VVnDbBXXlvwv-ya_zuxGyBaKYYBzqp8r2MwBsVRnZl9a3ZJE9GST0V-vExD6FEYqBfT_7LLzBg",
                 "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcS2ngel-TO7iFgmWm09Qjdgc_mMt3m0XBfnbh9nzW25M4utbZH0wpgJqQPFRhPLwKCzwN9yueU2uwAgWW5qPkI5oFAk3yDIfw5pAa5KuA"
             ],
-            "currentFactors":{ "humidity": 65, "airQuality": 75, "allergens": 50, "temperature": 23 }
+            "currentFactors":{ "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 }
         },
         {
             "name": "Malaga",
@@ -98,7 +99,7 @@ def get_map_data_per_country(country: str):
                 "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Dgmi7w9NvfwoA8986PRdzHc9rpOJIXWxy-bmA7d1_nSUYVu0pcDWi0Jm6X8zjYylpsjwhtEjaO8uHzM91iA-abcspdBA9ZU1_jm3TTjjjxKExsMz8ynJNWwJfOz5KJaZWuh6Lg=w1080-h624-n-k-no",
                 "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRmMq91xq9E8f0tFx-4I1ZiL33p3h3GVxLt5eo9CwJAUrjsWdfm4IIMfqfYEDmVGLc75BpmoTR-LZqWFMTcHZkc39goX3zH3mEqo3UolQ"
             ],
-            "currentFactors":{ "humidity": 65, "airQuality": 75, "allergens": 50, "temperature": 23 }
+            "currentFactors":{ "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 }
         },
         {
             "name": "Bilbao",

@@ -208,7 +208,7 @@ export function SimpleSpainMap() {
                               healthData[region].data[currentMonth],
                               activeTab
                             )}`}
-                          ></div>
+                          />
                           <div className="mt-2 flex items-center justify-between text-sm">
                             <span>Humidity</span>
                             <span
@@ -232,15 +232,15 @@ export function SimpleSpainMap() {
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-4 rounded-md bg-muted p-2 text-sm">
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-green-500" />
                     <span>Low Humidity (&lt;40%)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-amber-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-amber-500" />
                     <span>Moderate (40-60%)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-red-500" />
                     <span>High (&gt;60%)</span>
                   </div>
                 </div>
@@ -263,7 +263,7 @@ export function SimpleSpainMap() {
                             healthData[region].data[currentMonth],
                             activeTab
                           )}`}
-                        ></div>
+                        />
                         <div className="mt-2 flex items-center justify-between text-sm">
                           <span>Air Quality</span>
                           <span
@@ -290,15 +290,15 @@ export function SimpleSpainMap() {
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-4 rounded-md bg-muted p-2 text-sm">
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-green-500" />
                     <span>Excellent (&gt;85)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-amber-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-amber-500" />
                     <span>Good (70-85)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-red-500" />
                     <span>Poor (&lt;70)</span>
                   </div>
                 </div>
@@ -321,7 +321,7 @@ export function SimpleSpainMap() {
                             healthData[region].data[currentMonth],
                             activeTab
                           )}`}
-                        ></div>
+                        />
                         <div className="mt-2 flex items-center justify-between text-sm">
                           <span>Allergen Level</span>
                           <span
@@ -348,15 +348,15 @@ export function SimpleSpainMap() {
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-4 rounded-md bg-muted p-2 text-sm">
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-green-500" />
                     <span>Low (&lt;30)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-amber-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-amber-500" />
                     <span>Moderate (30-60)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-red-500" />
                     <span>High (&gt;60)</span>
                   </div>
                 </div>
@@ -379,7 +379,7 @@ export function SimpleSpainMap() {
                             healthData[region].data[currentMonth],
                             activeTab
                           )}`}
-                        ></div>
+                        />
                         <div className="mt-2 flex items-center justify-between text-sm">
                           <span>Temperature</span>
                           <span
@@ -411,15 +411,15 @@ export function SimpleSpainMap() {
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-4 rounded-md bg-muted p-2 text-sm">
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-green-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-green-500" />
                     <span>Ideal (15-25°C)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-amber-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-amber-500" />
                     <span>Moderate (10-15°C, 25-30°C)</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="h-3 w-3 rounded-full bg-red-500"></div>
+                    <div className="h-3 w-3 rounded-full bg-red-500" />
                     <span>Extreme (&lt;10°C, &gt;30°C)</span>
                   </div>
                 </div>
@@ -578,17 +578,17 @@ export function SimpleSpainMap() {
               </h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded-full bg-green-500"></div>
+                  <div className="h-4 w-4 rounded-full bg-green-500" />
                   <span className="text-sm">Excellent conditions</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded-full bg-amber-500"></div>
+                  <div className="h-4 w-4 rounded-full bg-amber-500" />
                   <span className="text-sm">
                     Moderate conditions - exercise caution
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded-full bg-red-500"></div>
+                  <div className="h-4 w-4 rounded-full bg-red-500" />
                   <span className="text-sm">
                     Challenging conditions - consider alternatives
                   </span>

@@ -47,11 +47,15 @@ flowchart LR
   export PATH="$HOME/miniconda/bin:$PATH"
   ```
 
-- **Node.js** (>=14.x) and **Yarn** (global)
+- **Node.js** and **Yarn** (global)
 
   ```bash
-  # Install Node.js via nvm (recommended)
-  nvm install --lts
+  # Install Node.js
+  # please visit https://nodejs.org/en/download
+
+  # and then install Yarn:
+  npm install -g yarn
+
 
   # Install Yarn globally
   npm install -g yarn

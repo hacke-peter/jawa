@@ -25,13 +25,23 @@ interface City {
   currentFactors: { [key: string]: number };
 }
 
-function onAddDestination(city: City) {}
+// function getBarWidth(value: number) {
+//   if (value < 10) return '0';
+//   if (value >= 10 && value <= 30) return '1/6';
+//   if (value > 40 && value <= 55) return '1/2';
+//   if (value > 40 && value <= 55) return '1/4';
+//   if (value > 55 && value <= 65) return '1/4';
+//   if (value > 65 && value <= 86) return '1/6';
+//   return '100';
+// }
+
 function onGetPersonalized() {}
 
 const Modal: FC<
   City & {
     onAddDestination: () => void;
     onGetPersonalized: () => void;
+    isAdded: boolean;
   }
 > = ({
   name,
@@ -40,9 +50,9 @@ const Modal: FC<
   currentFactors,
   onAddDestination,
   onGetPersonalized,
+  isAdded,
 }) => {
   const id = `marker-${name.replace(/\s+/g, '-')}`;
-  const [added, setAdded] = useState(false);
 
   return (
     <Popover.Root>
@@ -76,7 +86,7 @@ const Modal: FC<
                 <Heart
                   size={20}
                   className={
-                    added ? 'text-red-500 fill-current' : 'text-gray-600'
+                    isAdded ? 'text-red-500 fill-current' : 'text-gray-600'
                   }
                 />
               </button>
@@ -93,33 +103,39 @@ const Modal: FC<
           <p className="text-sm mb-4">{description}</p>
 
           {!!currentFactors &&
-            Object.entries(currentFactors).map(([factor, value]) => (
-              <div key={factor} className="mb-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span>{factor[0].toUpperCase() + factor.slice(1)}</span>
-                  <span
-                    className={`font-medium ${
+            Object.entries(currentFactors).map(([factor, value]) => {
+              // const width =
+              //   factor === 'temperature' ? 'w-full' : `w-${getBarWidth(value)}`;
+              // console.log('width', width);
+              return (
+                <div key={factor} className="mb-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span>{factor[0].toUpperCase() + factor.slice(1)}</span>
+                    <span
+                      className={`font-medium ${
+                        value <= 40
+                          ? 'text-green-600'
+                          : value <= 60
+                          ? 'text-amber-600'
+                          : 'text-red-600'
+                      }`}
+                    >
+                      {value}
+                      {factor === 'temperature' ? '°' : '%'}
+                    </span>
+                  </div>
+                  <div
+                    className={`h-3 rounded-full ${
                       value <= 40
-                        ? 'text-green-600'
+                        ? 'bg-green-400'
                         : value <= 60
-                        ? 'text-amber-600'
-                        : 'text-red-600'
+                        ? 'bg-amber-400'
+                        : 'bg-red-400'
                     }`}
-                  >
-                    {value}%
-                  </span>
+                  />
                 </div>
-                <div
-                  className={`h-3 w-full rounded-full ${
-                    value <= 40
-                      ? 'bg-green-400'
-                      : value <= 60
-                      ? 'bg-amber-400'
-                      : 'bg-red-400'
-                  }`}
-                />
-              </div>
-            ))}
+              );
+            })}
 
           <Swiper
             modules={[Navigation, Pagination]}
@@ -148,19 +164,23 @@ const Modal: FC<
 
 export default function MapChart() {
   const [mapData, setMapData] = useState<City[]>([]);
+  const [destinations, setDestination] = useState<any[]>([]);
 
   useEffect(() => {
+    setDestination(JSON.parse(localStorage.getItem('destinations') || '[]'));
     fetch('/api/map-data/spain')
       .then((response) => response.json())
       .then((data) => {
         setMapData(data);
       });
   }, []);
-  const [selectedCity, setSelectedCity] = useState<string>('');
+
   useEffect(() => {
-    if (selectedCity) {
+    if (JSON.stringify(destinations) !== localStorage.getItem('destinations')) {
+      localStorage.setItem('destinations', JSON.stringify(destinations));
     }
-  }, [selectedCity]);
+  }, [destinations]);
+
   return (
     <div className="container max-w-[600px] mx-auto">
       <ComposableMap
@@ -192,7 +212,6 @@ export default function MapChart() {
                 data-tooltip-content={city.name}
                 data-tooltip-place="top"
                 style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedCity(city.name)}
               >
                 <Modal
                   name={city.name}
@@ -201,7 +220,19 @@ export default function MapChart() {
                   coords={city.coords}
                   currentFactors={city.currentFactors}
                   onGetPersonalized={onGetPersonalized}
-                  onAddDestination={() => onAddDestination(city)}
+                  onAddDestination={() => {
+                    const index = destinations.findIndex(
+                      (des) => des.name === city.name
+                    );
+                    if (index >= 0) {
+                      const newDestinarions = [...destinations];
+                      newDestinarions.splice(index, 1);
+                      setDestination(newDestinarions);
+                    } else {
+                      setDestination([...destinations, city]);
+                    }
+                  }}
+                  isAdded={destinations.some((des) => des.name === city.name)}
                 />
               </a>
             </Marker>

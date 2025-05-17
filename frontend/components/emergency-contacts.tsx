@@ -1,7 +1,13 @@
-import { Phone, Plus, User } from "lucide-react"
+import { Phone, Plus, User } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -10,17 +16,25 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export function EmergencyContacts() {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Local Emergency Services</CardTitle>
+          <CardTitle className="text-sm font-medium">
+            Local Emergency Services
+          </CardTitle>
           <Phone className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent className="grid gap-3">
@@ -69,7 +83,9 @@ export function EmergencyContacts() {
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Personal Contacts</CardTitle>
+          <CardTitle className="text-sm font-medium">
+            Personal Contacts
+          </CardTitle>
           <User className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent className="grid gap-3">
@@ -80,7 +96,9 @@ export function EmergencyContacts() {
               </div>
               <div>
                 <p className="text-sm font-medium">Dr. Sarah Johnson</p>
-                <p className="text-xs text-muted-foreground">Primary Physician</p>
+                <p className="text-xs text-muted-foreground">
+                  Primary Physician
+                </p>
               </div>
             </div>
             <Button variant="ghost" size="sm">
@@ -94,7 +112,9 @@ export function EmergencyContacts() {
               </div>
               <div>
                 <p className="text-sm font-medium">Michael Smith</p>
-                <p className="text-xs text-muted-foreground">Emergency Contact</p>
+                <p className="text-xs text-muted-foreground">
+                  Emergency Contact
+                </p>
               </div>
             </div>
             <Button variant="ghost" size="sm">
@@ -108,7 +128,9 @@ export function EmergencyContacts() {
               </div>
               <div>
                 <p className="text-sm font-medium">Emma Davis</p>
-                <p className="text-xs text-muted-foreground">Travel Companion</p>
+                <p className="text-xs text-muted-foreground">
+                  Travel Companion
+                </p>
               </div>
             </div>
             <Button variant="ghost" size="sm">
@@ -132,7 +154,9 @@ export function EmergencyContacts() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Add Emergency Contact</DialogTitle>
-            <DialogDescription>Add important contacts for your travels.</DialogDescription>
+            <DialogDescription>
+              Add important contacts for your travels.
+            </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
@@ -141,7 +165,10 @@ export function EmergencyContacts() {
             </div>
             <div className="grid gap-2">
               <Label htmlFor="relationship">Relationship</Label>
-              <Input id="relationship" placeholder="e.g., Doctor, Family, Friend" />
+              <Input
+                id="relationship"
+                placeholder="e.g., Doctor, Family, Friend"
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="phone">Phone Number</Label>
@@ -171,5 +198,5 @@ export function EmergencyContacts() {
         </DialogContent>
       </Dialog>
     </div>
-  )
+  );
 }

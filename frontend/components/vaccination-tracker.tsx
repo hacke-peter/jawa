@@ -1,7 +1,13 @@
-import { Clock, Plus, Shield } from "lucide-react"
+import { Clock, Plus, Shield } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -10,10 +16,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Progress } from "@/components/ui/progress"
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Progress } from '@/components/ui/progress';
 
 export function VaccinationTracker() {
   return (
@@ -21,7 +27,9 @@ export function VaccinationTracker() {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-lg font-medium">Vaccination Status</h3>
-          <p className="text-sm text-muted-foreground">Track your travel vaccinations</p>
+          <p className="text-sm text-muted-foreground">
+            Track your travel vaccinations
+          </p>
         </div>
         <Dialog>
           <DialogTrigger asChild>
@@ -32,12 +40,17 @@ export function VaccinationTracker() {
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Add Vaccination Record</DialogTitle>
-              <DialogDescription>Enter details about your vaccination.</DialogDescription>
+              <DialogDescription>
+                Enter details about your vaccination.
+              </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
               <div className="grid gap-2">
                 <Label htmlFor="vaccine-name">Vaccine Name</Label>
-                <Input id="vaccine-name" placeholder="e.g., Hepatitis A, Yellow Fever" />
+                <Input
+                  id="vaccine-name"
+                  placeholder="e.g., Hepatitis A, Yellow Fever"
+                />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
@@ -72,7 +85,9 @@ export function VaccinationTracker() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Hepatitis A</CardTitle>
-            <div className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">Valid</div>
+            <div className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
+              Valid
+            </div>
           </CardHeader>
           <CardContent className="grid gap-2">
             <div className="flex items-center justify-between">
@@ -106,7 +121,9 @@ export function VaccinationTracker() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Typhoid</CardTitle>
-            <div className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">Valid</div>
+            <div className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
+              Valid
+            </div>
           </CardHeader>
           <CardContent className="grid gap-2">
             <div className="flex items-center justify-between">
@@ -140,7 +157,9 @@ export function VaccinationTracker() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Yellow Fever</CardTitle>
-            <div className="rounded-full bg-amber-100 px-2 py-1 text-xs font-medium text-amber-800">Needed</div>
+            <div className="rounded-full bg-amber-100 px-2 py-1 text-xs font-medium text-amber-800">
+              Needed
+            </div>
           </CardHeader>
           <CardContent className="grid gap-2">
             <div className="flex items-center justify-between">
@@ -173,5 +192,5 @@ export function VaccinationTracker() {
         </Card>
       </div>
     </div>
-  )
+  );
 }

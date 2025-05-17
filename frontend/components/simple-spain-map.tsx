@@ -22,6 +22,7 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { getLocationColor } from '@/helpers/helpers';
 
 const months = [
   'January',
@@ -39,31 +40,6 @@ const months = [
 ];
 
 // Helper function to determine color based on value
-const getHumidityColor = (value: number) => {
-  if (value <= 40) return 'bg-green-500';
-  if (value <= 60) return 'bg-amber-500';
-  return 'bg-red-500';
-};
-
-const getAirQualityColor = (value: number) => {
-  if (value >= 85) return 'bg-green-500';
-  if (value >= 70) return 'bg-amber-500';
-  return 'bg-red-500';
-};
-
-const getAllergenColor = (value: number) => {
-  if (value <= 30) return 'bg-green-500';
-  if (value <= 60) return 'bg-amber-500';
-  return 'bg-red-500';
-};
-
-const getTemperatureColor = (value: number) => {
-  if (value >= 15 && value <= 25) return 'bg-green-500';
-  if ((value >= 10 && value < 15) || (value > 25 && value <= 30))
-    return 'bg-amber-500';
-  return 'bg-red-500';
-};
-
 const conditionFactors = {
   respiratory: ['humidity', 'air-quality', 'allergens', 'temperature'],
   cardiovascular: ['humidity', 'air-quality', 'temperature'],
@@ -77,7 +53,7 @@ const all_factors = [
 ] as const;
 
 export function SimpleSpainMap() {
-  const [currentMonth, setCurrentMonth] = useState(0); // January
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth()); // January
   const [activeTab, setActiveTab] = useState<
     'humidity' | 'air-quality' | 'allergens' | 'temperature'
   >('humidity');
@@ -123,24 +99,6 @@ export function SimpleSpainMap() {
     }, 1000);
 
     return () => clearInterval(interval);
-  };
-
-  // Function to get color for a location based on the current factor and month
-  const getLocationColor = (location: string) => {
-    const monthData = healthData[location].data[currentMonth];
-
-    switch (activeTab) {
-      case 'humidity':
-        return getHumidityColor(monthData.humidity);
-      case 'air-quality':
-        return getAirQualityColor(monthData.airQuality);
-      case 'allergens':
-        return getAllergenColor(monthData.allergens);
-      case 'temperature':
-        return getTemperatureColor(monthData.temperature);
-      default:
-        return 'bg-gray-500';
-    }
   };
 
   // Function to get the value for the current factor and month
@@ -247,7 +205,8 @@ export function SimpleSpainMap() {
                         <CardContent className="p-3 pt-0">
                           <div
                             className={`h-4 w-full rounded-full ${getLocationColor(
-                              region
+                              healthData[region].data[currentMonth],
+                              activeTab
                             )}`}
                           ></div>
                           <div className="mt-2 flex items-center justify-between text-sm">
@@ -301,7 +260,8 @@ export function SimpleSpainMap() {
                       <CardContent className="p-3 pt-0">
                         <div
                           className={`h-4 w-full rounded-full ${getLocationColor(
-                            region
+                            healthData[region].data[currentMonth],
+                            activeTab
                           )}`}
                         ></div>
                         <div className="mt-2 flex items-center justify-between text-sm">
@@ -358,7 +318,8 @@ export function SimpleSpainMap() {
                       <CardContent className="p-3 pt-0">
                         <div
                           className={`h-4 w-full rounded-full ${getLocationColor(
-                            region
+                            healthData[region].data[currentMonth],
+                            activeTab
                           )}`}
                         ></div>
                         <div className="mt-2 flex items-center justify-between text-sm">
@@ -415,7 +376,8 @@ export function SimpleSpainMap() {
                       <CardContent className="p-3 pt-0">
                         <div
                           className={`h-4 w-full rounded-full ${getLocationColor(
-                            region
+                            healthData[region].data[currentMonth],
+                            activeTab
                           )}`}
                         ></div>
                         <div className="mt-2 flex items-center justify-between text-sm">

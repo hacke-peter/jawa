@@ -1,7 +1,13 @@
-import { Check, Clock, Plus } from "lucide-react"
+import { Check, Clock, Plus } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -10,17 +16,25 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export function MedicationReminder() {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Malaria Prevention</CardTitle>
+          <CardTitle className="text-sm font-medium">
+            Malaria Prevention
+          </CardTitle>
           <Clock className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
@@ -31,7 +45,9 @@ export function MedicationReminder() {
             </div>
             <span className="text-xs">Daily - 8:00 AM</span>
           </div>
-          <div className="mt-2 text-xs text-muted-foreground">Take with food. Start 2 days before travel.</div>
+          <div className="mt-2 text-xs text-muted-foreground">
+            Take with food. Start 2 days before travel.
+          </div>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline" size="sm">
@@ -55,7 +71,9 @@ export function MedicationReminder() {
             </div>
             <span className="text-xs">Daily - 10:00 PM</span>
           </div>
-          <div className="mt-2 text-xs text-muted-foreground">Take as needed for allergic symptoms.</div>
+          <div className="mt-2 text-xs text-muted-foreground">
+            Take as needed for allergic symptoms.
+          </div>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline" size="sm">
@@ -68,7 +86,9 @@ export function MedicationReminder() {
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Traveler's Diarrhea</CardTitle>
+          <CardTitle className="text-sm font-medium">
+            Traveler's Diarrhea
+          </CardTitle>
           <Clock className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
@@ -79,7 +99,9 @@ export function MedicationReminder() {
             </div>
             <span className="text-xs">As needed</span>
           </div>
-          <div className="mt-2 text-xs text-muted-foreground">Take only if experiencing symptoms.</div>
+          <div className="mt-2 text-xs text-muted-foreground">
+            Take only if experiencing symptoms.
+          </div>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline" size="sm" disabled>
@@ -100,7 +122,9 @@ export function MedicationReminder() {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Add New Medication</DialogTitle>
-            <DialogDescription>Enter the details of your medication and set reminders.</DialogDescription>
+            <DialogDescription>
+              Enter the details of your medication and set reminders.
+            </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
@@ -139,5 +163,5 @@ export function MedicationReminder() {
         </DialogContent>
       </Dialog>
     </div>
-  )
+  );
 }

@@ -1,7 +1,14 @@
-import { Filter, Heart, MapPin, ThumbsUp } from "lucide-react"
+import { Filter, Heart, MapPin, ThumbsUp } from 'lucide-react';
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -10,11 +17,17 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Slider } from "@/components/ui/slider"
+} from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Slider } from '@/components/ui/slider';
 
 export function DestinationRecommendations() {
   return (
@@ -35,7 +48,9 @@ export function DestinationRecommendations() {
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Filter Destinations</DialogTitle>
-              <DialogDescription>Customize your search criteria</DialogDescription>
+              <DialogDescription>
+                Customize your search criteria
+              </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
               <div className="space-y-2">
@@ -82,21 +97,37 @@ export function DestinationRecommendations() {
               <div className="space-y-2">
                 <Label>Maximum Humidity (%)</Label>
                 <div className="flex items-center gap-4">
-                  <Slider defaultValue={[50]} max={100} step={5} className="flex-1" />
+                  <Slider
+                    defaultValue={[50]}
+                    max={100}
+                    step={5}
+                    className="flex-1"
+                  />
                   <span className="w-12 text-center text-sm">50%</span>
                 </div>
               </div>
               <div className="space-y-2">
                 <Label>Temperature Range (°C)</Label>
                 <div className="flex items-center gap-4">
-                  <Slider defaultValue={[15, 25]} min={-10} max={40} step={1} className="flex-1" />
+                  <Slider
+                    defaultValue={[15, 25]}
+                    min={-10}
+                    max={40}
+                    step={1}
+                    className="flex-1"
+                  />
                   <span className="w-20 text-center text-sm">15°C - 25°C</span>
                 </div>
               </div>
               <div className="space-y-2">
                 <Label>Maximum Altitude (m)</Label>
                 <div className="flex items-center gap-4">
-                  <Slider defaultValue={[1000]} max={3000} step={100} className="flex-1" />
+                  <Slider
+                    defaultValue={[1000]}
+                    max={3000}
+                    step={100}
+                    className="flex-1"
+                  />
                   <span className="w-16 text-center text-sm">1000m</span>
                 </div>
               </div>
@@ -135,20 +166,28 @@ export function DestinationRecommendations() {
           </CardHeader>
           <CardContent className="grid gap-3">
             <div className="aspect-video overflow-hidden rounded-md">
-              <img src="/placeholder.svg?height=200&width=400" alt="Tuscany" className="h-full w-full object-cover" />
+              <img
+                src="/placeholder.svg?height=200&width=400"
+                alt="Tuscany"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ThumbsUp className="h-4 w-4 text-green-500" />
-                  <span className="text-sm font-medium">Health Compatibility</span>
+                  <span className="text-sm font-medium">
+                    Health Compatibility
+                  </span>
                 </div>
                 <span className="text-sm font-medium text-green-600">95%</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Humidity</span>
-                  <span className="font-medium text-green-600">Low (40-50%)</span>
+                  <span className="font-medium text-green-600">
+                    Low (40-50%)
+                  </span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Air Quality</span>
@@ -160,7 +199,9 @@ export function DestinationRecommendations() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Medical Care</span>
-                  <span className="font-medium text-green-600">High Quality</span>
+                  <span className="font-medium text-green-600">
+                    High Quality
+                  </span>
                 </div>
               </div>
               <div className="mt-2 flex items-center gap-2 text-sm">
@@ -190,20 +231,28 @@ export function DestinationRecommendations() {
           </CardHeader>
           <CardContent className="grid gap-3">
             <div className="aspect-video overflow-hidden rounded-md">
-              <img src="/placeholder.svg?height=200&width=400" alt="San Diego" className="h-full w-full object-cover" />
+              <img
+                src="/placeholder.svg?height=200&width=400"
+                alt="San Diego"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ThumbsUp className="h-4 w-4 text-green-500" />
-                  <span className="text-sm font-medium">Health Compatibility</span>
+                  <span className="text-sm font-medium">
+                    Health Compatibility
+                  </span>
                 </div>
                 <span className="text-sm font-medium text-green-600">92%</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Humidity</span>
-                  <span className="font-medium text-amber-600">Moderate (60-70%)</span>
+                  <span className="font-medium text-amber-600">
+                    Moderate (60-70%)
+                  </span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Air Quality</span>
@@ -255,14 +304,18 @@ export function DestinationRecommendations() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ThumbsUp className="h-4 w-4 text-green-500" />
-                  <span className="text-sm font-medium">Health Compatibility</span>
+                  <span className="text-sm font-medium">
+                    Health Compatibility
+                  </span>
                 </div>
                 <span className="text-sm font-medium text-green-600">90%</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Humidity</span>
-                  <span className="font-medium text-amber-600">Moderate (50-60%)</span>
+                  <span className="font-medium text-amber-600">
+                    Moderate (50-60%)
+                  </span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Air Quality</span>
@@ -300,24 +353,34 @@ export function DestinationRecommendations() {
                 <span className="sr-only">Add to favorites</span>
               </Button>
             </div>
-            <CardDescription>Dry climate ideal for respiratory issues</CardDescription>
+            <CardDescription>
+              Dry climate ideal for respiratory issues
+            </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-3">
             <div className="aspect-video overflow-hidden rounded-md">
-              <img src="/placeholder.svg?height=200&width=400" alt="Arizona" className="h-full w-full object-cover" />
+              <img
+                src="/placeholder.svg?height=200&width=400"
+                alt="Arizona"
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ThumbsUp className="h-4 w-4 text-green-500" />
-                  <span className="text-sm font-medium">Health Compatibility</span>
+                  <span className="text-sm font-medium">
+                    Health Compatibility
+                  </span>
                 </div>
                 <span className="text-sm font-medium text-green-600">88%</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Humidity</span>
-                  <span className="font-medium text-green-600">Very Low (20-30%)</span>
+                  <span className="font-medium text-green-600">
+                    Very Low (20-30%)
+                  </span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Air Quality</span>
@@ -369,14 +432,18 @@ export function DestinationRecommendations() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ThumbsUp className="h-4 w-4 text-green-500" />
-                  <span className="text-sm font-medium">Health Compatibility</span>
+                  <span className="text-sm font-medium">
+                    Health Compatibility
+                  </span>
                 </div>
                 <span className="text-sm font-medium text-amber-600">85%</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Humidity</span>
-                  <span className="font-medium text-amber-600">Moderate (50-60%)</span>
+                  <span className="font-medium text-amber-600">
+                    Moderate (50-60%)
+                  </span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Air Quality</span>
@@ -428,14 +495,18 @@ export function DestinationRecommendations() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ThumbsUp className="h-4 w-4 text-green-500" />
-                  <span className="text-sm font-medium">Health Compatibility</span>
+                  <span className="text-sm font-medium">
+                    Health Compatibility
+                  </span>
                 </div>
                 <span className="text-sm font-medium text-amber-600">82%</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Humidity</span>
-                  <span className="font-medium text-amber-600">Moderate (60-70%)</span>
+                  <span className="font-medium text-amber-600">
+                    Moderate (60-70%)
+                  </span>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Air Quality</span>
@@ -447,7 +518,9 @@ export function DestinationRecommendations() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-muted-foreground">Medical Care</span>
-                  <span className="font-medium text-amber-600">Varies by island</span>
+                  <span className="font-medium text-amber-600">
+                    Varies by island
+                  </span>
                 </div>
               </div>
               <div className="mt-2 flex items-center gap-2 text-sm">
@@ -469,5 +542,5 @@ export function DestinationRecommendations() {
         <Button variant="outline">Load More Destinations</Button>
       </div>
     </div>
-  )
+  );
 }

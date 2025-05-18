@@ -132,6 +132,7 @@ export function SimpleSpainMap() {
             Visualize how health factors change throughout the year in Spain
           </p>
         </div>
+
         <div className="flex items-center gap-2">
           <RadioGroup
             defaultValue="respiratory"
@@ -155,6 +156,65 @@ export function SimpleSpainMap() {
           </RadioGroup>
         </div>
       </div>
+      {/* Time slider control */}
+      <div className="space-y-2 p-4 rounded-lg border bg-card text-card-foreground shadow-sm">
+        <div className="flex items-center justify-between bg-white">
+          <h3 className="text-sm font-medium bg-white">
+            Time of Year: {months[currentMonth]}
+          </h3>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8"
+              onClick={() =>
+                setCurrentMonth((prev) => (prev === 0 ? 11 : prev - 1))
+              }
+            >
+              <ChevronLeft className="h-4 w-4" />
+              <span className="sr-only">Previous Month</span>
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8"
+              onClick={togglePlay}
+            >
+              {isPlaying ? (
+                <Square className="h-4 w-4" />
+              ) : (
+                <Play className="h-4 w-4" />
+              )}
+              <span className="sr-only">{isPlaying ? 'Stop' : 'Play'}</span>
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8"
+              onClick={() =>
+                setCurrentMonth((prev) => (prev === 11 ? 0 : prev + 1))
+              }
+            >
+              <ChevronRight className="h-4 w-4" />
+              <span className="sr-only">Next Month</span>
+            </Button>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <Slider
+            value={[currentMonth]}
+            min={0}
+            max={11}
+            step={1}
+            onValueChange={(value) => setCurrentMonth(value[0])}
+            className="flex-1"
+          />
+          <div className="flex items-center gap-2 rounded-md border px-3 py-1.5">
+            <Calendar className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm font-medium">{months[currentMonth]}</span>
+          </div>
+        </div>
+      </div>
 
       <Card>
         <CardHeader>
@@ -175,6 +235,7 @@ export function SimpleSpainMap() {
             </div>
           </div>
         </CardHeader>
+
         <CardContent className="space-y-4">
           {/* @ts-ignore */}
           <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -426,68 +487,6 @@ export function SimpleSpainMap() {
               </TabsContent>
             )}
           </Tabs>
-
-          {/* Time slider control */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-medium">
-                Time of Year: {months[currentMonth]}
-              </h3>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8"
-                  onClick={() =>
-                    setCurrentMonth((prev) => (prev === 0 ? 11 : prev - 1))
-                  }
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                  <span className="sr-only">Previous Month</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8"
-                  onClick={togglePlay}
-                >
-                  {isPlaying ? (
-                    <Square className="h-4 w-4" />
-                  ) : (
-                    <Play className="h-4 w-4" />
-                  )}
-                  <span className="sr-only">{isPlaying ? 'Stop' : 'Play'}</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="h-8 w-8"
-                  onClick={() =>
-                    setCurrentMonth((prev) => (prev === 11 ? 0 : prev + 1))
-                  }
-                >
-                  <ChevronRight className="h-4 w-4" />
-                  <span className="sr-only">Next Month</span>
-                </Button>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Slider
-                value={[currentMonth]}
-                min={0}
-                max={11}
-                step={1}
-                onValueChange={(value) => setCurrentMonth(value[0])}
-                className="flex-1"
-              />
-              <div className="flex items-center gap-2 rounded-md border px-3 py-1.5">
-                <Calendar className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium">
-                  {months[currentMonth]}
-                </span>
-              </div>
-            </div>
-          </div>
         </CardContent>
         <CardFooter>
           <div className="text-sm text-muted-foreground">

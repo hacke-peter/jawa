@@ -18,10 +18,11 @@ function onGetPersonalized() {}
 
 export default function MapChart() {
   const [mapData, setMapData] = useState<City[]>([]);
-  const [destinations, setDestination] = useState<any[]>([]);
+  const [destinations, setDestination] = useState<any[]>(
+    JSON.parse(localStorage.getItem('destinations') || '[]')
+  );
 
   useEffect(() => {
-    setDestination(JSON.parse(localStorage.getItem('destinations') || '[]'));
     fetch('/api/map-data/spain')
       .then((response) => response.json())
       .then((data) => {

@@ -142,7 +142,7 @@ export function SimpleSpainMap() {
           >
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="respiratory" id="map-respiratory" />
-              <Label htmlFor="map-respiratory">Respiratory</Label>
+              <Label htmlFor="map-respiratory">Asthma</Label>
             </div>
             <div className="flex items-center space-x-2 ml-4">
               <RadioGroupItem value="cardiovascular" id="map-cardiovascular" />
@@ -163,7 +163,7 @@ export function SimpleSpainMap() {
               <CardTitle>
                 Spain -{' '}
                 {condition === 'respiratory'
-                  ? 'Respiratory'
+                  ? 'Asthma'
                   : condition === 'cardiovascular'
                   ? 'Cardiovascular'
                   : 'Allergy'}{' '}

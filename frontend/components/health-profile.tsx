@@ -109,7 +109,7 @@ export function HealthProfile() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <Checkbox id="respiratory" defaultChecked />
-                <Label htmlFor="respiratory">Respiratory Conditions</Label>
+                <Label htmlFor="respiratory">Asthma</Label>
               </div>
               <div className="ml-6 text-sm text-muted-foreground">
                 Asthma, COPD, Chronic Bronchitis, Emphysema

@@ -43,7 +43,8 @@ def get_map_data_per_country(country: str):
                 "https://lh3.googleusercontent.com/gps-cs-s/AC9h4np8lJSMGsdgpRNbDG5JgePhhIjvErt4lYTQ2iB4AiUWtxFvNsMryK-IxeYt-JZ99rJEG9rvp58lFDX0cTtU6tUNUSJjXijDCCSiqJ6mYOOkIdQK7VPwtTLa729ROIScZ1yPnAXPbg=w1080-h624-n-k-no",
                 "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS2Khyxi-OLgopapzpevDYE7s89JPwjL7lX7yRjy8eVhHTyCu8hVPgxdcwv2mbdCaOwdP7gFwKrYAkHixu2QCWv8HXmMpqgn8vv2Hkb0Q"
             ],
-            "currentFactors":{ "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 }
+            "currentFactors": { "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 },
+            "score": 8
         },
         {
             "name": "Madrid",
@@ -54,8 +55,8 @@ def get_map_data_per_country(country: str):
                 "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSmHvZhDsjfwKQuqlrN6ZRaUX36t084GdQx5SB_PKFWGSPK1WJGBkWzANGTkmcOBF7qAAJbsAszOyyogkPMgcAF9xERa11Yn801TdNJ0A",
                 "https://lh3.googleusercontent.com/gps-cs-s/AC9h4norITrkEP3dCo8HDZhEg3_ryF6dXdAdojf0Z_tprEC28bzFZW_r90yzD5GXn1MY_Jo9JK3W_atgv7OCLw0MuKEYxaYk1IwYj-jRQVmw-StQsf66ixS-gA4_vTA1ug9jy0U7NSCm=w1080-h624-n-k-no"
             ],
-            "currentFactors":{"humidity": 45, "air-quality": 75, "allergens": 65, "temperature": 18},
-
+            "currentFactors": { "humidity": 45, "air-quality": 75, "allergens": 65, "temperature": 18 },
+            "score": 7
         },
         {
             "name": "Valencia",
@@ -66,7 +67,8 @@ def get_map_data_per_country(country: str):
                 "/images/valencia-2.jpg",
                 "/images/valencia-3.jpg"
             ],
-            "currenFactors":{"humidity": 60, "air-quality": 80, "allergens": 45, "temperature": 24}
+            "currenFactors": { "humidity": 60, "air-quality": 80, "allergens": 45, "temperature": 24 },
+            "score": 5
         },
         {
             "name": "Seville",
@@ -77,7 +79,8 @@ def get_map_data_per_country(country: str):
                 "/images/seville-2.jpg",
                 "/images/seville-3.jpg"
             ],
-            "currenFactors":{"humidity": 60, "air-quality": 80, "allergens": 45, "temperature": 24}
+            "currenFactors": { "humidity": 60, "air-quality": 80, "allergens": 45, "temperature": 24 },
+            "score": 6
         },
         {
             "name": "Granada",
@@ -88,7 +91,8 @@ def get_map_data_per_country(country: str):
                 "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRxOTQBjLt3480QFzkSlhnnZ0mQVZh4VVnDbBXXlvwv-ya_zuxGyBaKYYBzqp8r2MwBsVRnZl9a3ZJE9GST0V-vExD6FEYqBfT_7LLzBg",
                 "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcS2ngel-TO7iFgmWm09Qjdgc_mMt3m0XBfnbh9nzW25M4utbZH0wpgJqQPFRhPLwKCzwN9yueU2uwAgWW5qPkI5oFAk3yDIfw5pAa5KuA"
             ],
-            "currentFactors":{ "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 }
+            "currentFactors": { "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 },
+            "score": 5
         },
         {
             "name": "Malaga",
@@ -99,7 +103,8 @@ def get_map_data_per_country(country: str):
                 "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr2Dgmi7w9NvfwoA8986PRdzHc9rpOJIXWxy-bmA7d1_nSUYVu0pcDWi0Jm6X8zjYylpsjwhtEjaO8uHzM91iA-abcspdBA9ZU1_jm3TTjjjxKExsMz8ynJNWwJfOz5KJaZWuh6Lg=w1080-h624-n-k-no",
                 "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRmMq91xq9E8f0tFx-4I1ZiL33p3h3GVxLt5eo9CwJAUrjsWdfm4IIMfqfYEDmVGLc75BpmoTR-LZqWFMTcHZkc39goX3zH3mEqo3UolQ"
             ],
-            "currentFactors":{ "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 }
+            "currentFactors": { "humidity": 65, "air-quality": 75, "allergens": 50, "temperature": 23 },
+            "score": 5
         },
         {
             "name": "Bilbao",
@@ -110,6 +115,7 @@ def get_map_data_per_country(country: str):
                 "/images/bilbao-2.jpg",
                 "/images/bilbao-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Cordoba",
@@ -120,6 +126,7 @@ def get_map_data_per_country(country: str):
                 "/images/cordoba-2.jpg",
                 "/images/cordoba-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Zaragoza",
@@ -130,6 +137,7 @@ def get_map_data_per_country(country: str):
                 "/images/zaragoza-2.jpg",
                 "/images/zaragoza-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Alicante",
@@ -140,6 +148,7 @@ def get_map_data_per_country(country: str):
                 "/images/alicante-2.jpg",
                 "/images/alicante-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Palma de Mallorca",
@@ -150,6 +159,7 @@ def get_map_data_per_country(country: str):
                 "/images/palma-de-mallorca-2.jpg",
                 "/images/palma-de-mallorca-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Murcia",
@@ -160,6 +170,7 @@ def get_map_data_per_country(country: str):
                 "/images/murcia-2.jpg",
                 "/images/murcia-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "San Sebastian",
@@ -170,6 +181,7 @@ def get_map_data_per_country(country: str):
                 "/images/san-sebastian-2.jpg",
                 "/images/san-sebastian-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Salamanca",
@@ -180,6 +192,7 @@ def get_map_data_per_country(country: str):
                 "/images/salamanca-2.jpg",
                 "/images/salamanca-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Toledo",
@@ -190,6 +203,7 @@ def get_map_data_per_country(country: str):
                 "/images/toledo-2.jpg",
                 "/images/toledo-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Segovia",
@@ -200,6 +214,7 @@ def get_map_data_per_country(country: str):
                 "/images/segovia-2.jpg",
                 "/images/segovia-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Cuenca",
@@ -210,6 +225,7 @@ def get_map_data_per_country(country: str):
                 "/images/cuenca-2.jpg",
                 "/images/cuenca-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Avila",
@@ -220,6 +236,7 @@ def get_map_data_per_country(country: str):
                 "/images/avila-2.jpg",
                 "/images/avila-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Burgos",
@@ -230,6 +247,7 @@ def get_map_data_per_country(country: str):
                 "/images/burgos-2.jpg",
                 "/images/burgos-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Oviedo",
@@ -240,6 +258,7 @@ def get_map_data_per_country(country: str):
                 "/images/oviedo-2.jpg",
                 "/images/oviedo-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Santander",
@@ -250,6 +269,7 @@ def get_map_data_per_country(country: str):
                 "/images/santander-2.jpg",
                 "/images/santander-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Tarragona",
@@ -260,6 +280,7 @@ def get_map_data_per_country(country: str):
                 "/images/tarragona-2.jpg",
                 "/images/tarragona-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Ronda",
@@ -270,6 +291,7 @@ def get_map_data_per_country(country: str):
                 "/images/ronda-2.jpg",
                 "/images/ronda-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Marbella",
@@ -280,6 +302,7 @@ def get_map_data_per_country(country: str):
                 "/images/marbella-2.jpg",
                 "/images/marbella-3.jpg"
             ],
+            "score": 5
         },
         {
             "name": "Girona",
@@ -290,6 +313,7 @@ def get_map_data_per_country(country: str):
                 "/images/girona-2.jpg",
                 "/images/girona-3.jpg"
             ],
+            "score": 5
         }
     ]
     return cities

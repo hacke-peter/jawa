@@ -20,6 +20,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import ScoreDonut from './score-donut';
 import { Heart, User } from 'lucide-react';
+import { cities as mapData } from '@/helpers/data';
 
 function getDestinations() {
   if (typeof localStorage === 'undefined') {
@@ -30,7 +31,7 @@ function getDestinations() {
 }
 
 export default function MapChart() {
-  const [mapData, setMapData] = useState<City[]>([]);
+  // const [mapData, setMapData] = useState<City[]>([]);
   const [openCity, setOpenCity] = useState<City | null>(null);
   const [destinations, setDestination] = useState<any[]>(getDestinations());
 
@@ -38,11 +39,11 @@ export default function MapChart() {
   const [showFactorsScore, setShowFactorsScore] = useState(false);
 
   // fetch your data once
-  useEffect(() => {
-    fetch('/api/map-data/spain')
-      .then((res) => res.json())
-      .then(setMapData);
-  }, []);
+  // useEffect(() => {
+  //   fetch('/api/map-data/spain')
+  //     .then((res) => res.json())
+  //     .then(setMapData);
+  // }, []);
 
   useEffect(() => {
     if (JSON.stringify(destinations) !== localStorage.getItem('destinations')) {

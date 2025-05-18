@@ -25,6 +25,7 @@ import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getLocationColor } from '@/helpers/helpers';
 import MapChart from './map';
+import { climate_data as healthData } from '@/helpers/data';
 
 const months = [
   'January',
@@ -64,13 +65,13 @@ export function SimpleSpainMap() {
   const [condition, setCondition] = useState<
     'respiratory' | 'cardiovascular' | 'allergies'
   >('respiratory');
-  const [healthData, setHealthData] = useState<any>({});
+  // const [healthData, setHealthData] = useState<any>({});
 
-  useEffect(() => {
-    fetch('/api/healthdata/spain')
-      .then((response) => response.json())
-      .then((data) => setHealthData(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/api/healthdata/spain')
+  //     .then((response) => response.json())
+  //     .then((data) => setHealthData(data));
+  // }, []);
 
   useEffect(() => {
     if (

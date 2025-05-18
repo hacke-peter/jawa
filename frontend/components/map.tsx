@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import {
   ComposableMap,
   Geographies,
@@ -129,6 +130,13 @@ export default function MapChart() {
             className="fixed top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg"
             style={{ maxWidth: '320px' }}
           >
+            {/* Accessibility: hidden title for screen readers */}
+            <Dialog.Title asChild>
+              <VisuallyHidden>
+                {openCity?.name ?? 'City details'}
+              </VisuallyHidden>
+            </Dialog.Title>
+
             {openCity && (
               <>
                 <div className="flex justify-between items-center mb-4">
@@ -140,9 +148,9 @@ export default function MapChart() {
                           (des) => des.name === openCity.name
                         );
                         if (index >= 0) {
-                          const newDestinarions = [...destinations];
-                          newDestinarions.splice(index, 1);
-                          setDestination(newDestinarions);
+                          const newDestinations = [...destinations];
+                          newDestinations.splice(index, 1);
+                          setDestination(newDestinations);
                         } else {
                           setDestination([...destinations, openCity]);
                         }

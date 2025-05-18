@@ -10,6 +10,7 @@ import {
 } from 'react-simple-maps';
 import AutocompleteSearch from './search';
 import { City } from './map-card';
+import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -17,10 +18,20 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import ScoreDonut from './score-donut';
+import { Heart, User } from 'lucide-react';
+
+function getDestinations() {
+  if (typeof localStorage === 'undefined') {
+    return [];
+  } else {
+    return JSON.parse(localStorage.getItem('destinations') || '[]');
+  }
+}
 
 export default function MapChart() {
   const [mapData, setMapData] = useState<City[]>([]);
   const [openCity, setOpenCity] = useState<City | null>(null);
+  const [destinations, setDestination] = useState<any[]>(getDestinations());
 
   // ← NEW: whether to show the per-factor bars
   const [showFactorsScore, setShowFactorsScore] = useState(false);
@@ -31,6 +42,12 @@ export default function MapChart() {
       .then((res) => res.json())
       .then(setMapData);
   }, []);
+
+  useEffect(() => {
+    if (JSON.stringify(destinations) !== localStorage.getItem('destinations')) {
+      localStorage.setItem('destinations', JSON.stringify(destinations));
+    }
+  }, [destinations]);
 
   // reset the factor view any time you open a different city
   useEffect(() => {
@@ -72,20 +89,32 @@ export default function MapChart() {
             }
           </Geographies>
 
-          {mapData.map((city) => (
-            <Marker key={city.name} coordinates={city.coords as any}>
-              <circle
-                r={6}
-                fill="#E91E63"
-                stroke="#FFF"
-                strokeWidth={2}
-                className="cursor-pointer"
-                onClick={() => setOpenCity(city)}
-              />
-            </Marker>
-          ))}
+          {mapData.map((city) => {
+            const id = `marker-${city.name.replace(/\s+/g, '-')}`;
+            return (
+              <Marker key={city.name} coordinates={city.coords as any}>
+                <a
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={city.name}
+                  data-tooltip-place="top"
+                >
+                  <circle
+                    id={id}
+                    r={7}
+                    fill="#E91E63"
+                    stroke="#FFF"
+                    strokeWidth={2}
+                    data-tooltip-content={city.name}
+                    className="cursor-pointer"
+                    onClick={() => setOpenCity(city)}
+                  />
+                </a>
+              </Marker>
+            );
+          })}
         </ComposableMap>
       </div>
+      <Tooltip id="my-tooltip" />
 
       {/* Controlled Dialog */}
       <Dialog.Root
@@ -104,13 +133,48 @@ export default function MapChart() {
               <>
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-xl font-semibold">{openCity.name}</h3>
-                  <Dialog.Close asChild>
-                    <button className="text-gray-500 hover:text-gray-700">
-                      &times;
+                  <div className="flex">
+                    <button
+                      onClick={() => {
+                        const index = destinations.findIndex(
+                          (des) => des.name === openCity.name
+                        );
+                        if (index >= 0) {
+                          const newDestinarions = [...destinations];
+                          newDestinarions.splice(index, 1);
+                          setDestination(newDestinarions);
+                        } else {
+                          setDestination([...destinations, openCity]);
+                        }
+                      }}
+                      aria-label="onAddDestination to next destinations"
+                      className="p-1 rounded hover:bg-gray-100"
+                    >
+                      <Heart
+                        size={20}
+                        className={
+                          destinations.some((des) => des.name === openCity.name)
+                            ? 'text-red-500 fill-current'
+                            : 'text-gray-600'
+                        }
+                      />
                     </button>
-                  </Dialog.Close>
+                    <button
+                      onClick={() => {}}
+                      aria-label="Get personalized info"
+                      className="p-1 rounded hover:bg-gray-100"
+                    >
+                      <User size={20} className="text-gray-600" />
+                    </button>
+                    <div className="ml-4">
+                      <Dialog.Close asChild>
+                        <button className="text-gray-500 hover:text-gray-700">
+                          &times;
+                        </button>
+                      </Dialog.Close>
+                    </div>
+                  </div>
                 </div>
-
                 <p className="text-sm text-gray-600 mb-4">
                   {openCity.description}
                 </p>

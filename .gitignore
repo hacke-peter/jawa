@@ -44,3 +44,6 @@ next-env.d.ts
 
 # cache
 **/__pycache__
+Screenshot 2025-05-18 at 10.56.27.png
+data/processed/asthma_features_with_ari.csv
+data/processed/factor_affecting_asthma.csv

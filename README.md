@@ -1,7 +1,19 @@
-# JAWA: just another Weather App
+![HealthyTravels! - logo with title for github](https://github.com/user-attachments/assets/665f06cb-bad9-4a72-95dc-fb15311ee85a)
+
+## Our Idea
+HealthyTravels! ... is not just another Weather App.
+
+Millions of people worldwide live with chronic health conditions that make them sensitive to environmental factors such as air pollution, temperature extremes, and humidity. These individuals face added challenges when planning travel — certain destinations or times of year may pose serious health risks.
+
+We are developing a travel health platform that uses Earth observation and atmospheric data to offer personalized travel recommendations based on environmental suitability. The app helps users understand where and when it’s safe to travel, providing both forecast-based alerts and historical insights tailored to specific health conditions.
+
+To begin, we are focusing on one of the most environmentally sensitive conditions: asthma. If successful, the platform will expand to support other conditions such as COPD, cardiovascular diseases, and heat-sensitive disorders.
+
+## The Tech Stuff
 
 ```mermaid
 flowchart LR
+
     subgraph Client
       FE[React Frontend]
       Chat[GPT Chat Agent]

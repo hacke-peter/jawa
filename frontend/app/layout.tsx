@@ -20,9 +20,9 @@ export default function RootLayout({
       <body>
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
           <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-            <Link href="#" className="flex items-center gap-2 font-semibold">
+            <Link href="/" className="flex items-center gap-2 font-semibold">
               <Heart className="h-6 w-6 text-teal-500" />
-              <span>HealthyTravel</span>
+              <span>HealthyTravels!</span>
             </Link>
             <nav className="ml-auto flex gap-2">
               <Link href="/">
@@ -36,10 +36,6 @@ export default function RootLayout({
                   Destinations
                 </Button>
               </Link>
-
-              <Button variant="ghost" size="sm">
-                Resources
-              </Button>
             </nav>
           </header>
           {children}

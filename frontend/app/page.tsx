@@ -17,21 +17,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { SimpleSpainMap } from '@/components/simple-spain-map';
-import MapChart from '@/components/map';
 
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Spain Health Travel Map
-        </h1>
-        <p className="text-muted-foreground">
-          Explore health conditions across Spain to find the perfect destination
-          for your needs
-        </p>
-      </div>
-
       <SimpleSpainMap />
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

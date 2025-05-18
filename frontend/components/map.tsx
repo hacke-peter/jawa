@@ -44,6 +44,9 @@ export default function MapChart() {
 
   return (
     <div className="container max-w-[600px] mx-auto">
+      <div>
+        <></>
+      </div>
       <ComposableMap
         projection="geoAzimuthalEqualArea"
         projectionConfig={{ center: [-3.7, 40.4], scale: 3000 }}

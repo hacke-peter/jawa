@@ -153,12 +153,7 @@ export function SimpleSpainMap() {
       </Tabs>
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-2xl font-bold">Spain Health Risk Map</h2>
-            <p className="text-sm text-muted-foreground">
-              Visualize how health factors change throughout the year in Spain
-            </p>
-          </div>
+          <div></div>
 
           <div className="flex items-center gap-2">
             <RadioGroup
@@ -253,13 +248,12 @@ export function SimpleSpainMap() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>
-                  Spain -{' '}
                   {condition === 'respiratory'
                     ? 'Asthma'
                     : condition === 'cardiovascular'
                     ? 'Cardiovascular'
                     : 'Allergy'}{' '}
-                  Health Map
+                  - Compare Locations
                 </CardTitle>
                 <CardDescription>
                   See how conditions change throughout the year
@@ -278,7 +272,8 @@ export function SimpleSpainMap() {
                     return <></>;
                   return (
                     <TabsTrigger key={factor} value={factor}>
-                      {factor}
+                      {factor[0].toLocaleUpperCase() +
+                        factor.slice(1).replace('-', ' ')}
                     </TabsTrigger>
                   );
                 })}

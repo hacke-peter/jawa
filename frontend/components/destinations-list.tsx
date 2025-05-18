@@ -24,7 +24,10 @@ const FavoritesList: FC = () => {
           ) : (
             destinations?.map((city) => {
               return (
-                <div className="flex items-center bg-white p-4 rounded-lg shadow space-x-4 mb-2">
+                <div
+                  key={city.name}
+                  className="flex items-center bg-white p-4 rounded-lg shadow space-x-4 mb-2"
+                >
                   <button
                     onClick={() => {}}
                     aria-label="onAddDestination to next destinations"

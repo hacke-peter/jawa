@@ -16,11 +16,17 @@ import { City, Modal } from './map-card';
 
 function onGetPersonalized() {}
 
+function getDestinations() {
+  if (typeof localStorage === 'undefined') {
+    return [];
+  } else {
+    return JSON.parse(localStorage.getItem('destinations') || '[]');
+  }
+}
+
 export default function MapChart() {
   const [mapData, setMapData] = useState<City[]>([]);
-  const [destinations, setDestination] = useState<any[]>(
-    JSON.parse(localStorage.getItem('destinations') || '[]')
-  );
+  const [destinations, setDestination] = useState<any[]>(getDestinations());
 
   useEffect(() => {
     fetch('/api/map-data/spain')

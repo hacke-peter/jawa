@@ -281,7 +281,7 @@ export function SimpleSpainMap() {
               {/* @ts-ignore */}
               {conditionFactors[condition].includes('humidity') && (
                 <TabsContent value="humidity" className="pt-4">
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {Object.keys(healthData).length > 0 &&
                       Object.keys(healthData).map((region) => (
                         <Card key={region}>
@@ -337,7 +337,7 @@ export function SimpleSpainMap() {
               {/* @ts-ignore */}
               {conditionFactors[condition].includes('air-quality') && (
                 <TabsContent value="air-quality" className="pt-4">
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {Object.keys(healthData).map((region) => (
                       <Card key={region}>
                         <CardHeader className="p-3">
@@ -395,7 +395,7 @@ export function SimpleSpainMap() {
               {/* @ts-ignore */}
               {conditionFactors[condition].includes('allergens') && (
                 <TabsContent value="allergens" className="pt-4">
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {Object.keys(healthData).map((region) => (
                       <Card key={region}>
                         <CardHeader className="p-3">
@@ -453,7 +453,7 @@ export function SimpleSpainMap() {
               {/* @ts-ignore */}
               {conditionFactors[condition].includes('temperature') && (
                 <TabsContent value="temperature" className="pt-4">
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {Object.keys(healthData).map((region) => (
                       <Card key={region}>
                         <CardHeader className="p-3">
